@@ -19,11 +19,18 @@ npx hardhat run --network localhost scripts/deploy_exchange.js
 ```
 
 Add the token_address.txt into the address tokenAddr field in contracts/exchange.sol
+
 Update the contract address and ABI in web_app/exchange.js. Update the const token_address and const exchange_address variables with the two contract addresses.
+
 The ABIs can be copied from artifacts/contracts/token.sol/token.json and artifacts/contracts/exchange.sol/exchange.json.
 
-The following commands can be used to run the web app:
+The following command in the web_app can be used to run the web app:
 
 ```bash
+live-server --port=8545
+```
+
+```
 https://localhost:8545
+
 ```
