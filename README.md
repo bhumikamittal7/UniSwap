@@ -34,3 +34,13 @@ live-server --port=8545
 https://localhost:8545
 
 ```
+
+## Todo
+1. preview thing
+2. connect to metamask
+3. make a game around it
+
+wireshark on tuesday
+classes schedule
+extra cred he'll grade
+jan on campus?
