@@ -7,45 +7,6 @@
     <title>Computer Networks Quiz</title>
     <style>
         /* Your existing styles remain unchanged */
-        body {
-            background-image: url('img.jpg'); /* Replace with your custom image */
-            background-size: cover;
-            color: #fff;
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        h1 {
-            margin-top: 50px;
-        }
-
-        #quiz {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px;
-        }
-
-        input {
-            margin-bottom: 10px;
-            padding: 5px;
-        }
-
-        button {
-            background-color: #4caf50;
-            color: white;
-            padding: 10px 20px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
 
         #menu {
             background: rgba(0, 0, 0, 0.7);
@@ -740,21 +701,15 @@ async function connectWallet() {
 
         function redeemScore() {
             const totalACS = score / 100;
-            
+            try {
                 // Redeem totalACS ACS to the player's account
-                async function mintAndSend() {
-                    try {
-                        await contract.methods.mint(account, web3.utils.toWei(totalACS.toString(), 'ether')).send({ from: account });
-                        console.log(`${totalACS} ACS minted and deposited to the player's account.`);
-                    } catch (error) {
-                        console.error('Error minting and depositing ACS:', error);
-                    }
-                }
+                await contract.methods.mint(account, web3.utils.toWei(totalACS.toString(), 'ether')).send({ from: account });
 
-                mintAndSend();
-
-            } 
-        
+                console.log(`${totalACS} ACS redeemed and deposited to the player\'s account.`);
+            } catch (error) {
+                console.error('Error redeeming ACS:', error);
+            }
+        }
 
         let currentLevel = 1;
         function allAnswersCorrect() {
